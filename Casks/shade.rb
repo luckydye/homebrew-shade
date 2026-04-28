@@ -9,7 +9,7 @@ cask "shade" do
 
   app "Shade.app"
 
-  post_install do
-    system "xattr", "-rd", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/Applications/Shade.app"
+  postflight do
+    system_command "xattr", args: ["-rd", "com.apple.quarantine", "#{appdir}/Shade.app"]
   end
 end
