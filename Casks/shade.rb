@@ -8,4 +8,8 @@ cask "shade" do
   homepage "https://github.com/luckydye/shade"
 
   app "Shade.app"
+
+  post_install do
+    system "xattr", "-rd", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/Applications/Shade.app"
+  end
 end
